@@ -1,0 +1,61 @@
+import java.util.Scanner;
+
+public class WeightConverter {
+	
+	public static void main (String[] args) {
+		
+		double pvalue = 0;
+		double kvalue = 0;
+		int x = 0;
+		
+		
+		for (int i=0; i!=3; i++) {
+			
+			System.out.println("Select operation to be preformed:\n");
+			System.out.println("1. Convert pound to kilo.");
+			System.out.println("2. Convert kilo to pound. ");
+			System.out.println("3. Exit.");
+			x = read();
+			
+			switch(x) {
+			case 1: p2k();
+			case 2: toMilesPerHour(1.5);
+			//case 3: break;
+			}
+			
+		}
+	}
+	
+	
+	@SuppressWarnings("resource")
+	public static int read() {
+		
+		Scanner scan = new Scanner(System.in);
+		scan.nextInt();
+		//scan.close();
+		return(scan.nextInt());
+		
+	}
+
+	
+	public static void p2k() {
+		double p;
+		System.out.println("Enter pounds:");
+		p = read();
+		p = p * 0.45359237;
+		System.out.println(p + "Kilos.");
+	}
+
+
+
+    
+    public static long toMilesPerHour (double kilometersPerHour){
+        
+        //kilometersPerHour = 1.5;
+        
+        if (kilometersPerHour < 0)
+        return -1;
+        else 
+        return (long) (kilometersPerHour / 1.609);   
+    }
+}

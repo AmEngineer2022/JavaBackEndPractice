@@ -1,0 +1,146 @@
+/**
+ * 
+ */
+package Classes;
+
+import java.util.Scanner;
+import java.sql.*;
+
+/**
+ * @author amina
+ *
+ */
+public class Service {
+
+	/* // JDBC driver name and database URL
+
+	static String JDBC_DRIVER = "org.postgresql.Driver";
+	static String DB_URL = "jdbc:postgresql://localhost/bankdb";
+
+	// Database credentials
+	static String USER = "postgres";
+	static String PASS = "20December2012";*/
+
+	public void setNamePassBalance(String fname, String lname, String password, int balance) throws SQLException {
+		
+			DAO create = new DAO();
+			create.createAccount(fname, lname, password, balance);
+			System.out.println("An account has been created.");
+
+	}
+			/* try {
+				conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+				stmt = conn.createStatement();
+				String sql1 = "INSERT INTO client (lastname, firstname, password, balance) VALUES ('" + lname + "','"
+						+ fname + "','" + passwordx + "','" + balance + "')";
+				stmt.executeUpdate(sql1);
+				String sql2 = "Select * FROM client";
+				System.out.println(sql2);
+
+			} catch (Exception e) {
+
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+		} finally {
+			System.out.println("complete");
+		}
+	}*/
+
+	public static void Login(Scanner scan) {
+
+		System.out.println("Enter first name:");
+		String fname = scan.nextLine();
+
+		System.out.println("Enter password:");
+		String pass = scan.nextLine();
+
+		Connection conn = null;
+		Statement stmt = null;
+/*
+		try {
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+
+			ResultSet rs = DAO.login1(fname, pass, conn);
+	*/
+		public static void clientView (int account, String password) {	
+			//while (rs.next()) {
+				System.out.println("Your available balance is:");
+				System.out.println(rs.getInt(1));
+				System.out.println("What would you want to do next:\n");
+				System.out.println(" 1. Deposit.");
+				System.out.println(" 2. Withrdaw.");
+				System.out.println(" 3. Exit. ");
+				int ch = scan.nextInt();
+				switch(ch){
+				case 1:
+					break;
+				case 2:
+					break;
+				case 3:
+		
+					default:
+				}
+				
+			}
+		
+			System.out.println("How much would you like to deposit?");
+			int d = scan.nextInt();
+
+			try {
+
+				stmt = conn.createStatement();
+				// String sql1 = "SELECT balance FROM client WHERE firstname = '"+fname+"' AND
+				// password = '"+pass+"'";
+				//stmt.executeQuery(sql1);
+
+				// ResultSet rs = stmt.getResultSet();
+
+				while (rs.next()) {
+				}
+
+			} catch (Exception e) {
+
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+
+				// Query to retrieve and Check.
+			}
+
+		} catch (Exception e) {
+
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+
+			scan.close();
+		}
+
+	}
+
+	public static void Withrdaw() {
+
+	}
+
+	public static void Deposit() {
+
+	}
+
+	public String verifyPass(String password1, String password2) {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		while (password1 != password2) {
+			System.out.println("Password mismatch\n");
+			System.out.println("  Please enter your password:");
+			password1 = scan.nextLine();
+			System.out.println(" Enter password again:");
+			password2 = scan.nextLine();
+		}
+		 scan.close();
+		 return password1;
+		 
+	}
+	
+}

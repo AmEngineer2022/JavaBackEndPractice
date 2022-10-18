@@ -1,0 +1,46 @@
+import java.util.Scanner;
+
+public class WeightConverter {
+	
+	public static void main (String[] args) {
+		
+		double pvalue = 0;
+		double kvalue = 0;
+		int x = 0;
+		
+		
+		for (int i; i!=3; i++) {
+			
+			System.out.println("Select operation to be preformed:\n");
+			System.out.println("1. Convert pound to kilo.");
+			System.out.println("2. Convert kilo to pound. ");
+			System.out.println("3. Exit.");
+			x = read();
+			
+			switch(x) {
+			case 1: p2k();
+			case 2: kiloToPound;
+			case 3: break;
+			}
+			
+		}
+	}
+	
+	
+	public static int read() {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		return(scan.nextInt());
+		scan.close();
+	}
+
+	
+	public static void p2k() {
+		double p;
+		System.out.println("Enter pounds:");
+		p = read();
+		p = p * 0.45359237;
+		System.out.println(p + "Kilos.");
+	}
+}

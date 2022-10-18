@@ -1,0 +1,78 @@
+import java.util.Scanner;
+
+public class WeightConverter {
+	
+	public static void main (String[] args) {
+		
+		double pvalue = 0;
+		double kvalue = 0;
+		int x = 0;
+		long m;
+		
+		for (int i=0; i!=3; i++) {
+			
+			System.out.println("Select operation to be preformed:\n");
+			System.out.println("1. Convert pound to kilo.");
+			System.out.println("2. Convert kilo to pound. ");
+			System.out.println("3. Exit.");
+			x = read();
+			
+			switch(x) {
+			case 1: p2k();
+			 break;
+			case 2: m = toMilesPerHour(75.114 );
+				System.out.println(m );
+			case 3: printConversion(75.114);
+			 break;
+			//case 3: break;
+			}
+			
+		}
+	}
+	
+	
+	@SuppressWarnings("resource")
+	public static int read() {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		return(scan.nextInt());
+		
+	}
+
+	
+	public static void p2k() {
+		double p;
+		
+		System.out.println("Enter pounds:");
+		p = read();
+		p = p * 0.45359237;
+		System.out.println(p + "Kilos.");
+	}
+
+
+
+    
+    public static long toMilesPerHour (double kilometersPerHour){
+        
+      //  kilometersPerHour = 1.5;
+        
+        if (kilometersPerHour < 0)
+        return -1;
+        else 
+        return Math.round( (long)(kilometersPerHour / 1.609));   
+    }
+    
+    public static void printConversion (double kilometersPerHour) {
+    	
+    	if (kilometersPerHour <  0)
+    		System.out.println("Invalid number");
+    	else {
+    		// long milesPerHour;
+    		// milesPerHour = (long)( kilometersPerHour / 1.609);
+    		
+    		System.out.println(kilometersPerHour + "km/h = " +Math.round(toMilesPerHour(75.114)) + "mi/h");
+    	}
+    }
+}
+

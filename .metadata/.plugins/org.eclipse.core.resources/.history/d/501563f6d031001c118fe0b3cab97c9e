@@ -1,0 +1,150 @@
+import java.util.Scanner;
+
+public class WeightConverter {
+	
+	/* public static void main (String[] args) {
+		
+		double pvalue = 0;
+		double kvalue = 0;
+		int x = 0;
+		long m;
+		
+		for (int i=0; i!=3; i++) {
+			
+			System.out.println("Select operation to be preformed:\n");
+			System.out.println("1. Convert pound to kilo.");
+			System.out.println("2. Convert kilo to pound. ");
+			System.out.println("3. Exit.\n4. Dog bark\n5.Is leap year\n6.feet to cm.");
+			x = read();
+			
+			switch(x) {
+			case 1: p2k();
+			 break;
+			//case 2: m = toMilesPerHour(1.5 );
+			//	System.out.println(m );
+			case 3: printConversion(25.42);
+			 break;
+			case 4: shouldWakeUp( true, 6);
+				break;
+			case 6: calFeetAndInchesToCentimeters(-6);
+				break;
+			}
+			
+		}
+	}
+	
+	
+	@SuppressWarnings("resource")
+	public static int read() {
+		
+		Scanner scan = new Scanner(System.in);
+		
+		return(scan.nextInt());
+		
+	}
+
+	
+	public static void p2k() {
+		double p;
+		
+		System.out.println("Enter pounds:");
+		p = read();
+		p = p * 0.45359237;
+		System.out.println(p + "Kilos.");
+	}
+
+*/
+
+    
+    public static long toMilesPerHour (double kilometersPerHour){
+        
+      //  kilometersPerHour = 1.5;
+        
+        if (kilometersPerHour < 0)
+        return -1;
+        else 
+        return (long)(Math.round(kilometersPerHour / 1.609));   
+    }
+    
+    public static void printConversion (double kilometersPerHour) {
+    	
+    	if (kilometersPerHour <  0)
+    		System.out.println("Invalid number");
+    	else {
+    		// long milesPerHour;
+    		// milesPerHour = (long)( kilometersPerHour / 1.609);
+    		
+    		System.out.println(kilometersPerHour + " km/h = " +Math.round(toMilesPerHour(kilometersPerHour)) + "mi/h\n");
+    	}
+    }
+    
+    public static void shouldWakeUp(boolean barking, int hourOfDay){
+
+        if (hourOfDay > 0 && hourOfDay <23) {
+        	if (barking && (hourOfDay < 8 || hourOfDay == 23)) {
+        		System.out.println("WAKEUP!");
+        	} else
+        		if (barking && hourOfDay > 8)
+        		System.out.println("False alarm");
+        }
+        else 
+        	System.out.println("Invalid Number");
+        
+    }
+    
+   
+     public static double calFeetAndInchesToCentimeters(double feet, double inch) {
+    	 
+    	 double centimeters;
+    	 if (feet >= 0 ) {
+    		 if ((inch >= 0) && (inch <=12)) {
+    			 centimeters = feet * 30.48;
+    			 centimeters = centimeters + (inch * 2.54);
+    			 System.out.println("value of " +feet +" feet and " + inch + " inches  is " + centimeters +" cm.");
+    			 return centimeters;
+    			 }else
+    				 return -1;
+    		 } else
+    			 return -1;
+     }
+       
+    public static double calFeetAndInchesToCentimeters (double inches) {
+    	
+    	if (inches >=0) {
+    		calFeetAndInchesToCentimeters(inches, 0);
+    	}  		
+		return -1;
+    	
+    	
+    }   
+    
+    public class SumOddRange {
+        
+    	 public static boolean isOdd ( int number){
+    	     
+    	     if (number < 0 )
+    	     return false;
+    	     else
+    	     if((number%2)!=0)
+    	     return true;
+    	     else 
+    	     return false;
+    	 }
+    	 
+    	 public static int main (int start, int end){
+    	     
+    	     int sum=0;
+    	     
+    	     for (int i = start; i <= end; i++){
+    	         if(isOdd(i))
+    	         return sum =sum+i;
+    	         else 
+    	         break;
+    	     }
+    	     return sum;
+    	     
+    	 }
+    	}
+    	
+}
+

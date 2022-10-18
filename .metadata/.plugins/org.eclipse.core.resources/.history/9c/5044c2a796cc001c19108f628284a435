@@ -1,0 +1,63 @@
+import java.util.Scanner;
+import java.util.*;
+
+public class Game {
+	
+	private static Map<String, Room> Rooms = new HashMap<String, Room>();
+	
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in); 
+		
+		Rooms.put("Patio", new Room("Patio","You are facing a large wooden door  with a silver \r\n"
+				+ "door knob and vertical silver nails across the bottom\r\n"
+				+ "and the top of the door. To the east and west side there \r\n"
+				+ "are almost identical Sets of three butterly bushes.\r\n"));
+		
+
+		Rooms.put("entrance", new Room( "entrance", "You are now inside the Shentour residance. \r\n"
+				+ "To the west is the coat hanger and a bench.\r\n"
+				+ "Do you mind taking off your shoes and hanging your coat?\r\n"));
+		
+		
+		Rooms.put("livingRoom", new Room( "livingRoom","You are at the guest living room to the East you have a blue comfortable sofa\r\n"
+				+ "a Van Gogh painting hangs ontop. A glass coffe table is infront of the sofa\r\n"
+				+ "Two accent chairs frame the bottom side of the window. North is the kitchen counter.\r\n"
+				+ "The counter has cheese and salami and olives.To the west there is the powder room and\r\n"
+				+ "guest room.\r\n"
+				+ "what would you like to do next?\r\n"));
+		
+		
+		Rooms.put("powderRoom", new Room ("powderRoom","You are at the powder room. To the north there is a sink and the mirror. \r\n"
+				+ "Would you like to wash your hands?"));
+		
+		
+		Rooms.put("kitchen", new Room("kitchen","You are at the kitchen. \r\n"
+				+ "To the north is a grey island with an iron \r\n"
+				+ "skillet hanging from the top.\r\n"
+				+ "To the south is the kitchen counter\r\n"
+				+ " with cheese, salami and olives. Please help yourself to some.\r\n"
+				+ "To the west is a long corridor with a window at the end."));
+		
+		Rooms.put("guestRoom", new Room("guestRoom","You are in the guest room.\r\n"
+				+ "To the west there is a desk.\r\n"
+				+ "To the north there is a bed.\r\n"
+				+ "To the south there is a large window.\r\n"));
+ 
+		
+		Rooms.put("terrace", new Room("terrace","You are at the terrace. To the north is a vegetable garden. To \r\n"
+				+ "To the south is the glass door to the living room.\r\n"
+				+ "To the east is an outdoor set for of chairs and a table.\r\n"
+				+ "To the West is a flower garden."));
+        String loc = "Patio";
+		while(true) {
+			System.out.println(Rooms.get(loc).getDesc());
+			if (loc == "Exit") {
+				break;
+			}
+			loc = scanner.nextLine();
+			if(!Rooms.containsKey(loc)){
+				System.out.println("You can not go in that direction.");
+			}
+		}
+		}
+	}

@@ -1,0 +1,105 @@
+package Classes;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class DAO {
+
+		 //JDBC driver name and database URL
+
+	
+		static String JDBC_DRIVER = "org.postgresql.Driver";
+		static String DB_URL = "jdbc:postgresql://localhost/bankdb";
+		private final Connection conn;
+		
+	
+		//Database credentials
+		
+		public DAO() throws SQLException {
+			super();
+			conn = DriverManager.getConnection(DB_URL, USER, PASS);
+		}
+		static String USER = "postgres";
+		static String PASS = "20December2012";
+		private static DAO dao;
+		
+		public static DAO connect() {
+			if (dao != null) {
+				return dao;
+			}
+			try {
+				dao = new DAO();
+				return dao;
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+				return null;
+			}
+		}
+		
+		public int createAccount (String fname, String lname, String password, int balance) {
+			
+			String sqlInsert = "INSERT INTO client (lastname, firstname, password, balance) VALUES ('" + lname + "','"
+					+ fname + "','" + password + "','" + balance + "')";
+			Statement stmt;
+			try {
+				stmt = conn.createStatement();
+				stmt.executeUpdate(sqlInsert);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return -1;
+		}
+			
+		
+		public int login(String fname, String password) {
+			
+			String sql1 = "SELECT account FROM client WHERE firstname = '" + fname + "' AND password = '" + password + "'";
+			Statement stmt;
+			try {
+				stmt = conn.createStatement();
+				stmt.executeQuery(sql1);
+				ResultSet rs = stmt.getResultSet();
+				if (rs.next()) {
+					return rs.getInt(1);
+				}
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		
+			return -1;
+			
+		}
+		
+		public int getBalance(int account) {
+			return 0;
+		}
+		
+		
+		
+		public int createAccount(String fname, String lname, String password) {
+			return 0;
+		}
+		
+		public void updateBalance(int account, int balance) {
+			
+		}
+		static ResultSet login1(String fname, String pass, Connection conn) throws SQLException {
+			Statement stmt;
+			stmt = conn.createStatement();
+			String sql1 = "SELECT balance FROM client WHERE firstname = '" + fname + "' AND password = '" + pass + "'";
+			stmt.executeQuery(sql1);
+		
+			ResultSet rs = stmt.getResultSet();
+			return rs;
+		}
+}
+	
+		
+
+	

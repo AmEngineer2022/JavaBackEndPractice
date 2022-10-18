@@ -1,0 +1,36 @@
+/**
+ * 
+ */
+package Classes;
+
+/**
+ * @author amina
+ *
+ */
+public class Client {
+	
+	
+    public void CreateAccount() {
+		
+	}
+	public void Login() {
+		
+	}
+    public static void View() {
+		
+	}
+    public static void Deposit() {
+		
+	}
+    public static void Withrdaw() {
+		
+	}
+    public static void Transfere() {
+		
+	}
+    public static void Receive() {
+		
+	}   
+    
+    
+}

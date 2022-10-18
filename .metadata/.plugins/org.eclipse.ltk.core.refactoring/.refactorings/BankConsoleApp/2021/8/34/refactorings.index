@@ -1,0 +1,4 @@
+1629060190408	Extract local variable 'in'
+1629060743334	Extract local variable 'stringReader'
+1629063546228	Extract method 'login1'
+1629063646814	Move member 'login1'
